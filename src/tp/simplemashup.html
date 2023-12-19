@@ -1,0 +1,22 @@
+<html>
+<head>
+<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+<script>
+  function load(){
+    var latlng= new google.maps.LatLng (43.6222,7.0500); 
+    var myOptions = { zoom: 8 , center: latlng, mapTypeId:google.maps.MapTypeId.ROADMAP}; 
+    var map= new google.maps.Map(document.getElementById("map_div"),myOptions);    } 
+</script>
+</head>
+
+<body onload="load()" >
+
+ This is an example of a mashup including google maps API
+
+ <div id="map_div" style="width: 550px; height: 500px;"></div>
+
+See https://developers.google.com/maps/documentation/javascript/reference#MapOptions for more information
+
+
+</body>
+</html>
