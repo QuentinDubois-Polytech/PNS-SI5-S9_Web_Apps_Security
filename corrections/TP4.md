@@ -23,7 +23,7 @@ class XMLHttpRequest {
 }
 ```
 
-Ainsi, lorsque le code va utiliser `XMLHttpRequest` et les méthodes : `constructor`, `open` et `send`, nos codes vont être exécuté.
+Ainsi, lorsque le code va utiliser `XMLHttpRequest` et les méthodes : `constructor`, `open` et `send`, nos codes vont être exécutés.
 
 **Question 2 : Change boot.js (and if needed trusted.js) to avoid the attack**
 
@@ -99,8 +99,9 @@ integrator = function(){
 lookup1 = function(o, prop){ 
 	if (prop === 'secretproperty'){ 
 		return "unsafe!"; 
-	} else { 
-		return o[prop]; 
+	} else {
+        return o[prop];
+    }
 }
 ```
 
@@ -124,12 +125,14 @@ prop = {toString : function() {return "secretproperty";}};
 
 Mitigation :
 
+Utilisation d'un `==` à la place d'un `===`.
 ```js
 lookup1 = function(o, prop){ 
-	if (prop === 'secretproperty'){ 
+	if (prop == 'secretproperty'){ 
 		return "unsafe!"; 
-	} else { 
-		return o[prop]; 
+	} else {
+        return o[prop];
+    }
 }
 ```
 

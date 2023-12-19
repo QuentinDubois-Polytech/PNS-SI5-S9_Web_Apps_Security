@@ -49,8 +49,8 @@ Nous devons ensuite modifier la page **integrator.html** de manière suivante, a
 </h1>  
   
 <iframe src="http://evil.com:8080/mycode/page.html">  
-    <script src="http://evil.com:8080/mycode/evilGadget_fetch.js">  
-    </script></iframe>  
+    <script src="http://evil.com:8080/mycode/evilGadget_fetch.js"></script>
+</iframe>  
 </html>
 ```
 
@@ -62,10 +62,10 @@ Il n'est pas possible de récupérer le secret, car la source l'iframe ne provie
 
 Pour pouvoir lire le secret, il faut changer le nom de domaine dans une balise script fournit par le serveur subdomain.host.com. Nous pouvons réaliser cela, en modifiant la fichier subdomainpage.html de la manière suivante :
 
-```bash
+```html
 <html>  
 <head>  
-    <script>    </script><h1> This is an iframe of different origin (subdomain)</h1>  
+<h1> This is an iframe of different origin \(subdomain\)</h1>  
 <script>  
     document.domain="host.com";  
     mydiv=document.getElementById("secret");  
