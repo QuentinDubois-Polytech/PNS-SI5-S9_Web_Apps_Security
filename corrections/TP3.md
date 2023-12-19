@@ -24,7 +24,7 @@ Pour mettre en place le SOP (Same Origin Policy), afin de protéger le secret, i
 <!-- page web html sur evil.com -->
 <html>  
 <head>  
-    <script src="http://evil.com:8080/mycode/evilGadget_v2.js"></script>  
+    <script src="http://evil.com:8080/mycode/evilGadget_fetch.js"></script>  
 </head>  
 <body>  
 <h1>  
@@ -49,7 +49,7 @@ Nous devons ensuite modifier la page **integrator.html** de manière suivante, a
 </h1>  
   
 <iframe src="http://evil.com:8080/mycode/page.html">  
-    <script src="http://evil.com:8080/mycode/evilGadget_v2.js">  
+    <script src="http://evil.com:8080/mycode/evilGadget_fetch.js">  
     </script></iframe>  
 </html>
 ```
