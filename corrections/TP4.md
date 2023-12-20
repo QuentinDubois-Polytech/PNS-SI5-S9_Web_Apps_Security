@@ -1,3 +1,5 @@
+# TP4
+
 **Question 1 : See code for boot.js, trusted.js, mashup1.js. Without changing this code, write code for attacker.js in order to make trusted.js execute unwanted code.**
 
 Ici, nous allons surcharger la référence de `XMLHttpRequest` de la manière suivante :
@@ -25,7 +27,7 @@ class XMLHttpRequest {
 
 Ainsi, lorsque le code va utiliser `XMLHttpRequest` et les méthodes : `constructor`, `open` et `send`, nos codes vont être exécutés.
 
-**Question 2 : Change boot.js (and if needed trusted.js) to avoid the attack**
+**Question 2 : Change boot.js (and if needed trusted.js) to avoid the attack.**
 
 Il faut définir notre objet `XMLHttpRequest` stocké dans la variable `xmlhttp` dans le fichier `boot.js` qui est exécuté avant le script de l'attaquant. Il faut ensuite gelé l'objet, pour qu'il ne puisse plus être modifié avec la fonction `Object.freeze`. Ainsi l'attaquant ne pourra pas modifier les propriétés de l'objet stocké dans la variable `xmlhttp`.
 
@@ -36,12 +38,11 @@ const xmlhttp = new XMLHttpRequest();
 Object.freeze(xmlhttp);
 ```
 
-**Question 3 : Let adapi.js be the code for some external gadget. Assume that code for adapi.js has been verified and cannot access window directly, however it**
+**Question 3 : Let adapi.js be the code for some external gadget. Assume that code for adapi.js has been verified and cannot access window directly, however it :**
 
-- has access to function integrator whenever it is available. For each of the following
-- versions of the mashup, can the external gadget adapi.js
-- read the value of secret?
-- obtain a pointer to window?
+- **has access to function integrator whenever it is available. For each of the following versions of the mashup, can the external gadget adapi.js**
+- **reads the value of secret?**
+- **obtains a pointer to window?**
 
 **Version 1 :**
 
@@ -97,9 +98,9 @@ integrator = function(){
 
 ```js
 lookup1 = function(o, prop){ 
-	if (prop === 'secretproperty'){ 
-		return "unsafe!"; 
-	} else {
+    if (prop === 'secretproperty'){ 
+        return "unsafe!"; 
+    } else {
         return o[prop];
     }
 }
@@ -126,11 +127,12 @@ prop = {toString : function() {return "secretproperty";}};
 Mitigation :
 
 Utilisation d'un `==` à la place d'un `===`.
+
 ```js
 lookup1 = function(o, prop){ 
-	if (prop == 'secretproperty'){ 
-		return "unsafe!"; 
-	} else {
+    if (prop == 'secretproperty'){ 
+        return "unsafe!"; 
+    } else {
         return o[prop];
     }
 }
@@ -140,8 +142,8 @@ lookup1 = function(o, prop){
 
 ```js
 lookup2 = function(o, prop){ 
-	var goodprop = { publicproperty: 'publicproperty', secretproperty: 'publicproperty'}[prop]; 
-	return o[goodprop];
+    var goodprop = { publicproperty: 'publicproperty', secretproperty: 'publicproperty'}[prop]; 
+    return o[goodprop];
 }
 ```
 
