@@ -1,6 +1,6 @@
 # TP2
 
-**Question 1 : Perform a store XSS attack to [guestbook.php](http://localhost:8080/tp2/ressources/guestbook.php). Defend this with a CSP header.**
+**Question 1 : Perform a store XSS attack to [`guestbook.php`](http://localhost:8080/tp2/ressources/guestbook.php). Defend this with a CSP header.**
 
 **Script : [tp2/ressources/guestbook.php (localhost live)](http://localhost:8080/tp2/ressources/guestbook.php) | [tp2/ressources/guestbook.php (code)](/src/tp2/ressources/guestbook.php)**
 
@@ -41,8 +41,8 @@ Résultat :
 
 ---
 
-**Question 2 : xssme.php perform all the attacks and generate protectedxssme.php to defend.**  
-**Do htmlentities or htmlspecialchars work in every context of [xssme.php](http://localhost:8080/tp2/ressources/xssme.php)? If not, explain and correct.**
+**Question 2 : [`xssme.php`](http://localhost:8080/tp2/ressources/xssme.php) perform all the attacks and generate protectedxssme.php to defend.**  
+**Do htmlentities or htmlspecialchars work in every context of [`xssme.php`](http://localhost:8080/tp2/ressources/xssme.php)? If not, explain and correct.**
 
 **Script : [tp2/ressources/xssme.php (localhost live)](http://localhost:8080/tp2/ressources/xssme.php) | [tp2/ressources/xssme.php (code)](/src/tp2/ressources/xssme.php)**
 
@@ -156,15 +156,15 @@ Le code javascript s'exécute lorsque l'utilisateur clique sur la balise input.
 **Défenses contre XSS :**
 
 - Utiliser le mécanisme CSP
-- Encoder les inputs utilisateurs en caractères html
+- Encoder les inputs utilisateurs en caractères HTML
 
 **Défenses contre XSS-DOM :**
 
 - Utiliser le mécanisme de CSP
-- Encoder les inputs utilisateurs en caractères html
+- Encoder les inputs utilisateurs en caractères HTML
 - Utiliser l'API Trusted Types ([Trusted Types API - Web APIs | MDN (mozilla.org)](https://developer.mozilla.org/en-US/docs/Web/API/Trusted_Types_API))
 - Utiliser le mode strict de javascript (`"use strict";` en première ligne de chaque fichier JavaScript ([Strict mode - JavaScript | MDN (mozilla.org)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode))
-- Ne pas utiliser innerHTML sur des inputs non vérifiés et utilisé plutôt à la place innerText.
+- Ne pas utiliser `innerHTML` sur des inputs non vérifiés et utilisé plutôt à la place innerText.
 
 **Question 4 : Investigate how to use Trusted types for DOM-XSS and the new attack.**
 
