@@ -1,3 +1,7 @@
+<?php
+    header("Content-Security-Policy: script-src 'self'");
+?>
+
 <html>
 <head></head>
 <body>
