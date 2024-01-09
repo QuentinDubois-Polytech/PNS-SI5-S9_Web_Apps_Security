@@ -153,6 +153,11 @@ Note : on ne peut pas encoder les caractères `"` et `'` avec des `%22` et `%27
 
 Le code javascript s'exécute lorsque l'utilisateur clique sur la balise input.
 
+**Différence entre XSS et DOMXSS :**
+
+- stored reflexcted, passe dans le serveur (backend) puis reviens vers l'utilisateur (frontend) : il y a donc la possiblité de voir l'attaque dans le backend
+- domxss, ne va que dans le fronted: le serveur (backend) ne verra pas l'attaque
+
 **Défenses contre XSS :**
 
 - Utiliser le mécanisme CSP
