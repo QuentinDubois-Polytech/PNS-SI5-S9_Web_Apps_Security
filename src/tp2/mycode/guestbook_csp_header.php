@@ -1,7 +1,8 @@
-<?php 
+protectedxssme<?php 
+header("Content-Security-Policy: default-src 'self'");
+
 $file="messages.txt";
 $messages=file_get_contents($file);
-header("Content-Security-Policy: script-src 'self';");
  ?>
 <html>
 <head>
@@ -12,7 +13,7 @@ header("Content-Security-Policy: script-src 'self';");
 	show.innerHTML= xmlhttp.responseText;       
      } ; 
      var input=document.getElementById("message").value;
-     var url = "http://localhost:8080/tp3/ressources/guestbookleavemessage.php?message="+input;
+     var url = "http://localhost:8080/tp2/mycode/guestbookleavemessage.php?message="+input;
      var xmlhttp = new XMLHttpRequest();	    
      xmlhttp.open('GET',url, true);
      xmlhttp.onreadystatechange = callback;
