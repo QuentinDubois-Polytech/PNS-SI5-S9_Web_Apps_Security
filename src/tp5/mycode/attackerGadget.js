@@ -1,9 +1,3 @@
-console.log("attackerGadget.js loaded");
+const url =  "http://host.com:8080/tp5/ressources/simple.php";
+window.location.replace(url)
 
-const urlTarget = "http://host.com:8080/tp5/ressources/apiCall";
-
-const request = {
-    method: "GET",
-};
-
-fetch(urlTarget, request)
