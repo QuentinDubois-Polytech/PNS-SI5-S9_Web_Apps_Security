@@ -41,6 +41,14 @@ Il est nécessaire de construire l'image *Docker* à partir du `Dockerfile` pré
 
 ### Construire l'image Docker
 
+Il faut tout d'abord exécuter le script bash `generate-ssl.sh` pour générer les certificats TLS du serveur web :
+
+```bash
+bash ./generate_certificate.sh
+```
+
+Il faut ensuite construire l'image *Docker* avec la commande suivante :
+
 ```bash
 docker build . -t quentin/web-apps-security -f ./dockerfile/Dockerfile
 ```
@@ -53,7 +61,7 @@ L'image doit impérativement être construite à partir du dossier racine du pro
 > `$PWD` ne fonctionne qu'avec *Powershell* et *Bash*, il ne fonctionne pas avec *CMD*.
 
 ```bash
-docker run -d -p 8080:80 -v $PWD/src:/var/www/html --name web-apps-security quentin/web-apps-security
+docker run -d -p 8080:80 -p 4443:443 -v $PWD/src:/var/www/html --name web-apps-security quentin/web-apps-security
 ```
 
 J'espère que ce projet vous sera utile.
