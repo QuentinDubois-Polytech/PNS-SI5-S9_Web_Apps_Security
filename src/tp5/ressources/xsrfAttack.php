@@ -25,6 +25,9 @@ if (isset($_GET["name"])) {
 </head>
 <body>
 <script>
+    const protocol = window.location.protocol;
+    const port = window.location.port;
+
     function call() {
         // add csrf defense token
         const url = `simple.php?csrf_token=<?php echo $_SESSION["csrf_token"] ?>`;
@@ -50,6 +53,14 @@ if (isset($_GET["name"])) {
     <button onclick="call()">Call the Server</button>
 </font>
 <div id=answer-div>Waiting for an answer...</div>
-<iframe id="iframe" src="../mycode/iframe_infected.php"></iframe>
+<script>
+    (() => {
+        const iframeInfected = document.createElement("iframe");
+        const domain = "attacker.com";
+        iframeInfected.src = `${protocol}//${domain}:${port}/tp5/mycode/iframeInfected.php`;
+        iframeInfected.title = "infected iframe";
+        document.body.appendChild(iframeInfected);
+    })()
+</script>
 </body>
 </html>
