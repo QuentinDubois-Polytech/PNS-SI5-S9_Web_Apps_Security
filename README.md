@@ -63,7 +63,7 @@ L'image doit impérativement être construite à partir du dossier racine du pro
 > `$PWD` ne fonctionne qu'avec *Powershell* et *Bash*, il ne fonctionne pas avec *CMD*.
 
 ```bash
-docker run -d -p 8080:80 -p 4443:443 -v $PWD/src:/var/www/html --name web-apps-security quentin/web-apps-security
+docker run -d -p 8080:80 -p 4443:443 -v $(pwd)/src:/var/www/html --name web-apps-security quentin/web-apps-security
 ```
 
 Il faut ensuite accéder au serveur avec le nom de dommaine `host.com`.
@@ -71,3 +71,8 @@ Le certificat TLS est auto-sign", uniquement pour ce nom de domaine.
 
 J'espère que ce projet vous sera utile.
 N'hésitez pas à me contacter si vous avez des questions ou des remarques.
+
+# Autres
+
+Si vous êtes à la recherche de la documentation pour l'installation de l'image Docker contenant [pyre-check](https://github.com/facebook/pyre-check).
+Elle se trouve dans le fichier [pyre-check.md](docs/pyre-check.md).
