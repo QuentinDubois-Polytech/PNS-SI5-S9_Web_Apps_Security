@@ -27,5 +27,7 @@ RUN python3 -m pip install --upgrade pip  \
 
 # Install pyre
 RUN python3 -m pipx install pyre-check
+RUN pip3 install psutil
+RUN pip3 install pyre-check fb-sapp django-stubs
 
 CMD ["/bin/bash"]
