@@ -26,6 +26,6 @@ RUN python3 -m pip install --upgrade pip  \
     && python3 -m pipx ensurepath
 
 # Install pyre
-RUN python3 -m pipx install pyre-check.md
+RUN python3 -m pipx install pyre-check
 
 CMD ["/bin/bash"]
