@@ -1,7 +1,8 @@
 # TP5
 
-**Question 1 Write JavaScript code to perform a CSRF attack
-(SameSite=None). file: [xsrfAttack.php](/src/tp5/ressources/xsrfAttack.php)**
+## Q1
+
+**Q1 : Write JavaScript code to perform a CSRF attack (SameSite=None). file: xsrfAttack.php**
 
 - Use SameSite=LAX cookies to defend (no token)
 - Use SameSite=LAX and no token to perform a CSRF attack.
@@ -10,13 +11,6 @@
 perform an example attack of A04 to A10
 
 **Script : [tp5/ressources/xsrfAttack.php?name=toto (localhost live)](http://host.com:8080/tp5/ressources/xsrfAttack.php?name=toto) | [tp5/ressources/xsrfAttack.php (code)](/src/tp5/ressources/xsrfAttack.php)**
-
-
-# Questions
-
-## Q1
-
-**Q1 : Write JavaScript code to perform a CSRF attack (SameSite=None). file: xsrfAttack.php**
 
 Il est important de savoir que les navigateurs modernes applique la politique **"Lax-by-default"**. Cela signifie que si la valeur Samesite d'un cookie n'est pas fixé, il est évalué à `Lax` par le navigateur. Cette modification a tout d'abord été appliquée par Google Chrome à partir de la version 80. Firefox a ensuite suivi, ainsi que tous les autres navigateurs.
 
