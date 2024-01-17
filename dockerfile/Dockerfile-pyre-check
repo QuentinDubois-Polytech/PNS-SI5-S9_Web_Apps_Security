@@ -1,0 +1,33 @@
+FROM ubuntu
+
+# Install apt dependencies
+RUN apt-get update && apt-get install -y \
+    python3 \
+    python3-pip \
+    python3-venv \
+    build-essential \
+    procps \
+    curl \
+    file \
+    git \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install and setup homebrew
+# Note : Why you need to do the "eval" and call to "homebrew" in the same RUN statement
+# https://stackoverflow.com/questions/57703320/install-homebrew-using-dockerfile
+RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" \
+    && (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /root/.bashrc \
+    && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" \
+    && brew install watchman
+
+# Install pipx
+RUN python3 -m pip install --upgrade pip  \
+    && python3 -m pip install --user pipx \
+    && python3 -m pipx ensurepath
+
+# Install pyre
+RUN python3 -m pipx install pyre-check
+RUN pip3 install psutil
+RUN pip3 install pyre-check fb-sapp django-stubs
+
+CMD ["/bin/bash"]

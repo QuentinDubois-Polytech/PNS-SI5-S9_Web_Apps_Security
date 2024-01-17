@@ -7,3 +7,11 @@ console.log("cc")
 // the same with no cors
 
 fetch("http://host.com:8080/doesnotexist.html", {mode: 'no-cors'})
+(() => {
+    const protocol = window.location.protocol;
+    const port = window.location.port;
+    const domain = "host.com";
+    const url = `${protocol}//${domain}:${port}/tp5/ressources/simple.php`;
+    window.location.replace(url)
+})();
+
