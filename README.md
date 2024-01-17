@@ -43,6 +43,9 @@ Il est nécessaire de construire l'image *Docker* à partir du `Dockerfile` pré
 
 Il faut tout d'abord exécuter le script bash `generate-ssl.sh` pour générer les certificats TLS du serveur web :
 
+> :warning: Attention  
+> Si vous utilisez *WSL*, il faut dabord changer les caractères de fin de ligne du script avec la commande suivante : `dos2unix ./generate_certificate.sh`
+
 ```bash
 bash ./generate_certificate.sh
 ```
@@ -63,7 +66,7 @@ L'image doit impérativement être construite à partir du dossier racine du pro
 > `$PWD` ne fonctionne qu'avec *Powershell* et *Bash*, il ne fonctionne pas avec *CMD*.
 
 ```bash
-docker run -d -p 8080:80 -p 4443:443 -v $(pwd)/src:/var/www/html --name web-apps-security quentin/web-apps-security
+docker run -d -p 8080:80 -p 4443:443 -v $pwd/src:/var/www/html --name web-apps-security quentin/web-apps-security
 ```
 
 Il faut ensuite accéder au serveur avec le nom de dommaine `host.com`.
@@ -72,7 +75,7 @@ Le certificat TLS est auto-sign", uniquement pour ce nom de domaine.
 J'espère que ce projet vous sera utile.
 N'hésitez pas à me contacter si vous avez des questions ou des remarques.
 
-# Autres
+## Autres
 
 Si vous êtes à la recherche de la documentation pour l'installation de l'image Docker contenant [pyre-check](https://github.com/facebook/pyre-check).
 Elle se trouve dans le fichier [pyre-check.md](docs/pyre-check.md).
