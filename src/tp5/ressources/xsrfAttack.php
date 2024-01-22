@@ -10,7 +10,7 @@ if (isset($_GET["name"])) {
         'expires' => time() + 86400,
         'path' => '/',
         'domain' => 'host.com',
-        'secure' => true,
+        'secure' => false,
         'httponly' => true,
         'samesite' => 'Lax',
     ]);
