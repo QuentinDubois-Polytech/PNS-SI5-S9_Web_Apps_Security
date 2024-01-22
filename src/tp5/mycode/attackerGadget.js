@@ -5,4 +5,3 @@
     const url = `${protocol}//${domain}:${port}/tp5/ressources/simple.php`;
     window.location.replace(url)
 })();
-

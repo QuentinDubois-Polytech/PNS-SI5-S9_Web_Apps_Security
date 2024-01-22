@@ -11,4 +11,4 @@
    cheatsheets
 4) Investigate how to use Trusted types for DOM-XSS and
    the new attack : [link](https://portswigger.net/adaily-swig/untrusted-types-researcher-demos-trick-to-beat-trusted-types-protection-in-google-chrome)
-5) CTFs
+5) [CTFs](tp1.md)
