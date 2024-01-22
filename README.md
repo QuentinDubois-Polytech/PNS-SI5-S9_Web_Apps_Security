@@ -9,17 +9,21 @@ Il se peut donc que certaines corrections soient erronées ou incomplètes.
 - TP1
   - [TP1 - Sujet](/subjects/tp1.md)
 - TP2
-  - [TP2 - Sujet](/subjects/tp2.pdf)
+  - [TP2 - Sujet](/subjects/tp2.md)
   - [TP2 - Correction](/corrections/TP2.md)
   - [TP2 - Code](/src/tp2)
 - TP3
-  - [TP3 - Sujet](/subjects/tp3.pdf)
+  - [TP3 - Sujet](/subjects/tp3.md)
   - [TP3 - Correction](/corrections/TP3.md)
   - [TP3 - Code](/src/tp3)
 - TP4
-  - [TP4 - Sujet](/subjects/tp4.pdf)
+  - [TP4 - Sujet](/subjects/tp4.md)
   - [TP4 - Correction](/corrections/TP4.md)
   - [TP4 - Code](/src/tp4)
+- TP5
+  - [TP5 - Sujet](/subjects/tp5.md)
+  - [TP5 - Correction](/corrections/TP5.md)
+  - [TP5 - Code](/src/tp5)
 
 ## Installation
 

@@ -2,7 +2,7 @@
 
 ## Q1
 
-**Q1 : Write JavaScript code to perform a CSRF attack (SameSite=None). file: xsrfAttack.php**
+**Q1 : Write JavaScript code to perform a CSRF attack (SameSite=None). file: xsrfAttack.php**.
 
 - Use SameSite=LAX cookies to defend (no token)
 - Use SameSite=LAX and no token to perform a CSRF attack.
@@ -16,7 +16,7 @@ Il est important de savoir que les navigateurs modernes applique la politique **
 
 Il y a aussi une autre politique qui a commencé à être appliquée est qu'un cookie avec `Samesite=None` doit aussi inclure, l'attribut `Secure`. Cela signifie qu'il n'est pas possible de définir un cookie Cross-Site (`Samesite=None`) qui est envoyé lors de l'utilisation du protocole HTTP. Cette politique est appliqué dans les versions récentes de Chrome. En revanche, elle n'est pas encore appliquée dans la version 121.0.1 (la dernière version lors de l'écriture de ce rapport) de la branche stable de Firefox (version classique). Néanmoins, elle est appliquée dans la dernière version de la branche développeur de Firefox.
 
-Ainsi si vous utilisez Chrome ou que votre navigateur applique la dernière politique mentionnée. Il faut modifier le paramètre "secure" dans la fonction `setcookie` du script [xsrfAttack.php](../src/tp5/ressources/xsrfAttack.php) de la manière suivante `'secure' => true` et utiliser **HTTPS**. Le protocole https est supporté par l'image Docker fournit dans ce projet.
+Ainsi si vous utilisez Chrome ou que votre navigateur applique la dernière politique mentionnée. Il faut modifier le paramètre "secure" dans la fonction `setcookie` du script [xsrfAttack.php](/src/tp5/ressources/xsrfAttack.php) de la manière suivante `'secure' => true` et utiliser **HTTPS**. Le protocole https est supporté par l'image Docker fournit dans ce projet.
 
 Au niveau de l'implémentation de la CSRF, j'ai utilisé une redirection cliente avec `document.location` au détriment des API Javascript pour réaliser des requêtes HTTP tel que "XMLHttpRequest" et "fetch". Pour informations, ces API forcent la politique de SOP (Same Origin Policy), sauf si des entêtes CORS sont chargés. Ce qui n'est pas un problème puisque dans l'image Docker, apache est configuré pour fournir l'entête suivant dans toutes les réponses : `Access-Control-Allow-Origin: *`. Cet entête a pour effet de désactiver CORS. En revanche, les cookies ne sont pas attachés aux requêtes par défauts pour ces API, il faut rajouter la propriété `credentials: include` (fecth) ou  `withCredentials = true` (XMLHttpRequest). Mais "Access-Control-Allow-Origin" ne doit pas contenir de wildcard pour pouvoir utiliser `credentials: include` avec fetch. Ce qui n'est pas notre cas comme mentionné précédent. Concernant, XMLHttpRequest je n'ai pas regardé en effet, j'utilise exclusivement `fetch` qui est meilleur pour de nombreuses raisons, la principale étant l'utilisation de promesses (promise), permettant de réaliser de la programmation asynchrone.
 
@@ -26,11 +26,11 @@ Au niveau de l'implémentation de la CSRF, j'ai utilisé une redirection cliente
 - [Using the Fetch API - Web APIs | MDN (mozilla.org)](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#sending_a_request_with_credentials_included)
 - [XMLHttpRequest: withCredentials property - Web APIs | MDN (mozilla.org)](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/withCredentials)
 
-Vous l'aurez compris, pour des raisons de simplicité il est plus aisé de réaliser des requêtes GET contenant des cookies par redirection plutôt que d'utiliser les API "XMLHttpRequest" et "fetch". De plus, nous verrons dans la [Q3](#Q3) que le seul moyen de réaliser une CSRF contenant les cookies avec la politique `Samesite=Lax` est de réaliser une redirection.
+Vous l'aurez compris, pour des raisons de simplicité il est plus aisé de réaliser des requêtes GET contenant des cookies par redirection plutôt que d'utiliser les API "XMLHttpRequest" et "fetch". De plus, nous verrons dans la [Q3](#q3) que le seul moyen de réaliser une CSRF contenant les cookies avec la politique `Samesite=Lax` est de réaliser une redirection.
 
 ## Q2
 
-**Q2 : Use SameSite=LAX cookies to defend (no token)**
+**Q2 : Use SameSite=LAX cookies to defend (no token)**.
 
 Il suffit de modifier le paramètre `samesite` de la fonction `setcookie` fixant le cookie "login" dans le cookie du navigateur du client. Il faut passer le paramètre de `'None'` à `'Lax'`. Cette fonction se trouve appelée dans le script [xsrfAttack.php](../src/tp5/ressources/xsrfAttack.php).
 
@@ -90,13 +90,13 @@ isset($_GET["csrf_token"]) && isset($_SESSION["csrf_token"]) && $_GET["csrf_toke
 
 ## Q5
 
-**Q5 : Check the OWASP top ten: implement and perform an example attack of A04 to A10**
+**Q5 : Check the OWASP top ten: implement and perform an example attack of A04 to A10**.
 
-**TO BE CONTINUE !**
+**TO BE CONTINUED !**
 
-# Sources
+## Sources
 
-Je tiens à remercier **Léo LE BIHAN** pour le partage de son travail sur ce TP. Il m'a été d'une grande utilité et m'a permis en partie de pouvoir vous réaliser ce compte rendu complet.
+Je tiens à remercier **[Léo LE BIHAN](https://github.com/LeBihanLeo/)** pour le partage de son travail sur ce TP. Il m'a été d'une grande utilité et m'a permis en partie de pouvoir vous réaliser ce compte-rendu complet.
 
 **Liens :**
 
