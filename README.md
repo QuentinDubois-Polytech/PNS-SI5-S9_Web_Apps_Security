@@ -48,7 +48,7 @@ Il est nécessaire de construire l'image *Docker* à partir du `Dockerfile` pré
 Il faut tout d'abord exécuter le script bash `generate-ssl.sh` pour générer les certificats TLS du serveur web :
 
 > :warning: Attention  
-> Si vous utilisez *WSL*, il faut dabord changer les caractères de fin de ligne du script avec la commande suivante : `dos2unix ./generate_certificate.sh`
+> Si vous utilisez *WSL*, il faut dabord changer les caractères de fin de ligne du script avec la commande [dos2unix](https://command-not-found.com/dos2unix) : `dos2unix ./generate_certificate.sh`
 
 ```bash
 bash ./generate_certificate.sh
