@@ -8,7 +8,7 @@ $messages=file_get_contents($file);
    function save(){ 
         var callback = function () {     
         var show=document.getElementById("show"); 
-	show.innerHTML= xmlhttp.responseText;       
+	show.innerHTML= xmlhttp.responseText;
      } ; 
      var input=document.getElementById("message").value;
      var url = "http://localhost:8080/tp2/ressources/guestbookleavemessage.php?message="+input;
