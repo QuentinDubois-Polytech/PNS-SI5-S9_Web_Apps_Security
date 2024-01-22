@@ -12,7 +12,7 @@ if (isset($_GET["name"])) {
         'domain' => 'host.com',
         'secure' => false,
         'httponly' => true,
-        'samesite' => 'Lax',
+        'samesite' => 'Strict',
     ]);
 }
 ?>
@@ -24,7 +24,7 @@ if (isset($_GET["name"])) {
 </head>
 <body>
 <div>
-    Is cookie set login ? :
+    Is cookie set "login" ? :
     <?php
     // Simulating a login cookie, assuming user has logged in to set this cookie
     if (isset($_GET["name"])) {
