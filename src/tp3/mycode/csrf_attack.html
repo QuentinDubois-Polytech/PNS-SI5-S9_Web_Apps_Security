@@ -7,16 +7,8 @@
 <body>
 <h1>Attaque CSRF on evil.com to host.com</h1>
 <script>
-    const url = "http://evil.com:8080/random_ressouce.html";
-    const request = {
-        mode:  'no-cors',
-        method: "GET",
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    };
-
-    fetch(url, request);
+    const url = "http://host.com:8080/random_ressouce.html";
+    window.location.replace(url);
 </script>
 </body>
 </html>

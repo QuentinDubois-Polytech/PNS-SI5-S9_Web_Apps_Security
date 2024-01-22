@@ -33,7 +33,17 @@ Il suffit d'ajouter la balise suivante dans le header de la page HTML :
 <meta http-equiv="Content-Security-Policy" content="script-src 'self'">
 ```
 
-Réponse : [tp3/mycode/integrator_csp.html (localhost live)](http://host.com:8080/tp3/mycode/integrator_csp.html) | [tp3/mycode/integrator_csp.html (code)](/src/tp3/mycode/integrator_csp.html)
+Ou en transformant la page HTML en script PHP, et en ajoutant le header suivant :
+
+```php
+<?php header("Content-Security-Policy: script-src 'self'"); ?>
+```
+
+La deuxième solution est à privilégier.
+
+Réponse v1 : [tp3/mycode/integrator_csp.html (localhost live)](http://host.com:8080/tp3/mycode/integrator_csp.html) | [tp3/mycode/integrator_csp.html (code)](/src/tp3/mycode/integrator_csp.html)
+
+Réponse v2 : [tp3/mycode/integrator_csp.html (localhost live)](http://host.com:8080/tp3/mycode/integrator_csp.php) | [tp3/mycode/integrator_csp.html (code)](/src/tp3/mycode/integrator_csp.php)
 
 On remarque que le script `evilGadget.js` n'est pas chargé :
 
@@ -73,9 +83,7 @@ Nous devons ensuite modifier la page **integrator.html** de manière suivante, a
     </div>  
 </h1>  
   
-<iframe src="http://evil.com:8080/mycode/page.html">  
-    <script src="http://evil.com:8080/mycode/evilGadget_fetch.js"></script>
-</iframe>  
+<iframe src="http://evil.com:8080/mycode/page.html"></iframe>  
 </html>
 ```
 
@@ -100,7 +108,23 @@ Pour pouvoir lire le secret, il faut changer le nom de domaine dans une balise s
 </html>
 ```
 
-Nous devrions pouvoir afficher le secret dans une balise alert. En pratique, j'ai jamais réussi à le faire fonctionner.
+Nous devrions pouvoir afficher le secret dans une balise alert. Pour que cela fonctionne, il faut aussi modifier le fichier `sop2.html` de la manière suivante :
+
+```html
+<html>
+<head>
+</head>
+<body>
+    <div id=secret> The secret is 42 </div>
+    <script> 
+        document.domain = "host.com";
+    </script>
+    <iframe src="http://subdomain.host.com:8080/tp3/ressources/subdomainpage2.html"> </iframe>
+</body>
+</html>
+```
+
+Il faut que la page principale définisse explicitement la valeur de `document.domain`.
 
 **Question 3 : Write two different services from the same server that set a cookie.**  
 **On the client side include a gadget et an try the following things:**
@@ -137,16 +161,8 @@ Pour implémenter une CSRF, nous devons avoir une page web hébergée, par exemp
 <body>
 <h1>Attaque CSRF on evil.com to host.com</h1>
 <script>
-    const url = "http://evil.com:8080/random_ressouce.html";
-    const request = {
-        mode:  'no-cors',
-        method: "GET",
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    };
-
-    fetch(url, request);
+    const url = "http://host.com:8080/random_ressouce.html";
+    window.location.replace(url);
 </script>
 </body>
 </html>

