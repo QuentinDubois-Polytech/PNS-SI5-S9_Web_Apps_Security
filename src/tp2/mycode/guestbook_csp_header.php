@@ -1,9 +1,10 @@
-protectedxssme<?php 
+<?php
 header("Content-Security-Policy: default-src 'self'");
 
 $file="messages.txt";
 $messages=file_get_contents($file);
- ?>
+?>
+
 <html>
 <head>
  <script>
@@ -25,6 +26,7 @@ $messages=file_get_contents($file);
 
 </head>
 <body>
+<h1>Protected XSS ME</h1>
 <h1>Welcome to our Guest Book, Leave us a Message! </h1>
 <input  id="message" >
 <button onclick= 'save()' >Leave a message</button> 
