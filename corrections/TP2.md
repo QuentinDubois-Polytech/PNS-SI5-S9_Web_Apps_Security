@@ -134,7 +134,7 @@ Mettre une balise script dans l'input ne fonctionne pas, car dans la spécificat
 "a `<script>` tag inserted with `innerHTML` should not executed."  
 (Source : [Element: innerHTML property - Web APIs | MDN (mozilla.org)](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML))
 
-Le moyen est donc d'injecter du code javascript, mais sans utiliser une balise script.  
+Le moyen est donc d'injecter du code JavaScript, mais sans utiliser une balise script.  
 L'une des manières de faire est d'utiliser une balise img.
 
 ```bash
@@ -168,7 +168,7 @@ Le code javascript s'exécute lorsque l'utilisateur clique sur la balise input.
 - Utiliser le mécanisme de CSP
 - Encoder les inputs utilisateurs en caractères HTML
 - Utiliser l'API Trusted Types ([Trusted Types API - Web APIs | MDN (mozilla.org)](https://developer.mozilla.org/en-US/docs/Web/API/Trusted_Types_API))
-- Utiliser le mode strict de javascript (`"use strict";` en première ligne de chaque fichier JavaScript ([Strict mode - JavaScript | MDN (mozilla.org)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode))
+- Utiliser le mode strict de JavaScript (`"use strict";` en première ligne de chaque fichier JavaScript ([Strict mode - JavaScript | MDN (mozilla.org)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode))
 - Ne pas utiliser `innerHTML` sur des inputs non vérifiés et utilisé plutôt à la place innerText.
 
 **Question 4 : Investigate how to use Trusted types for DOM-XSS and the new attack.**
