@@ -1,7 +1,7 @@
 var i = 0;
 
-// To add to fix XMLHttpRequest overriding by the attacker
-/*
 const xmlhttp = new XMLHttpRequest();
-Object.freeze(xmlhttp);
- */
+
+// To fix XMLHttpRequest overriding by the attacker
+// You need to decomment the following line
+// Object.freeze(xmlhttp);
