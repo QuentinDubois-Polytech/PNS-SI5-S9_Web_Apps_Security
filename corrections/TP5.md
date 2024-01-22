@@ -92,7 +92,7 @@ isset($_GET["csrf_token"]) && isset($_SESSION["csrf_token"]) && $_GET["csrf_toke
 
 **Q5 : Check the OWASP top ten: implement and perform an example attack of A04 to A10**.
 
-Flemme
+**WILL NEVER BE DONE !**
 
 ## Sources
 
