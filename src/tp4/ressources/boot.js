@@ -1,7 +1,6 @@
 var i = 0;
 
-const xmlhttp = new XMLHttpRequest();
-
 // To fix XMLHttpRequest overriding by the attacker
 // You need to decomment the following line
+// const xmlhttp = new XMLHttpRequest();
 // Object.freeze(xmlhttp);
