@@ -43,7 +43,7 @@ La deuxième solution est à privilégier.
 
 Réponse v1 : [tp3/mycode/integrator_csp.html (localhost live)](http://host.com:8080/tp3/mycode/integrator_csp.html) | [tp3/mycode/integrator_csp.html (code)](/src/tp3/mycode/integrator_csp.html)
 
-Réponse v2 : [tp3/mycode/integrator_csp.html (localhost live)](http://host.com:8080/tp3/mycode/integrator_csp.php) | [tp3/mycode/integrator_csp.html (code)](/src/tp3/mycode/integrator_csp.php)
+Réponse v2 : [tp3/mycode/integrator_csp.php (localhost live)](http://host.com:8080/tp3/mycode/integrator_csp.php) | [tp3/mycode/integrator_csp.html (code)](/src/tp3/mycode/integrator_csp.php)
 
 On remarque que le script `evilGadget.js` n'est pas chargé :
 
